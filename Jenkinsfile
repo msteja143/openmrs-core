@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'LABEL4' }
+    agent { label 'LABEL3' }
     triggers { pollSCM ('* * * * *') }
     parameters {
         choice(name: 'MAVEN_GOAL', choices: ['package', 'install', 'clean'], description: 'Maven Goal')
