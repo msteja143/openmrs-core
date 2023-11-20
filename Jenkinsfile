@@ -19,14 +19,6 @@ pipeline {
                 sh "mvn package"
             }
         }
-        stage('sonar analysis') {
-            steps {
-                // performing sonarqube analysis with "withSonarQubeENV(<Name of Server configured in Jenkins>)"
-                withSonarQubeEnv('SONARCUBE') {
-                    sh 'mvn clean package sonar:sonar -Dsonar.organization=openmrs'
-                }
-            }
-        }
         stage('post build') {
             steps {
                 junit testResults: '**/surefire-reports/TEST-*.xml'
